@@ -1,0 +1,138 @@
+<!-- inherit base template -->
+{% extends "base.html" %}
+<!-- inherit base template -->
+
+<!-- app body begin -->
+{% block content %}
+<!-- app body begin -->
+
+<!-- body -->
+<!-- **** -->
+
+<div class="body-container" id="main-body">
+  <div class="row">
+    <div class="col-sm-3 columns">
+      <!-- user status -->
+      <!-- **** ****** -->
+      <div class="user-card">
+        <p>@user logged in</p>
+      </div>
+      <!-- **** ****** -->
+      <!-- user status -->
+
+      <!-- login -->
+      <!-- ***** -->
+      <div class="login-card">
+        <form action="">
+          <label for="exampleFormControlInput1" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="name@example.com"
+          />
+          <label for="exampleFormControlInput1" class="form-label"
+            >Password</label
+          >
+          <input
+            type="password"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="********"
+          />
+          <br />
+          <button class="btn btn-success">Login</button>
+        </form>
+      </div>
+      <!-- ***** -->
+      <!-- login -->
+
+      <!-- weather -->
+      <!-- ******* -->
+      <div class="weather-card">
+        <p>City:</p>
+        <p>Region:</p>
+        <p>Country:</p>
+        <br />
+        <div class="weather-container">
+          <img src="" alt="" />
+          <p>Cloudy</p>
+        </div>
+        <br />
+        <p>Feels like:</p>
+        <p>Wind speed:</p>
+        <p>Wind direction:</p>
+        <p>Pressure:</p>
+        <p>Humidity:</p>
+        <p>Cloud cover:</p>
+      </div>
+      <!-- ******* -->
+      <!-- weather -->
+    </div>
+    <div class="col-6 columns">
+      <!-- card -->
+      <!-- **** -->
+      <div class="post-card">
+        <p class="text-muted text-end">2022 Jan 6 20:40</p>
+        <div class="post-card-header">
+          <div>
+            <img
+              src="./img/socialbook_logo.png"
+              class="rounded-circle"
+              alt="user icon"
+            />
+            <a href="#" class="text-end">@user</a>
+          </div>
+        </div>
+        <br />
+        <a href="#" class="card-btn-header">
+          <h3>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, a!
+          </h3>
+        </a>
+        <br />
+        <div class="post-card-footer">
+          <a href="#" class="btn card-btn-links">Likes : 15</a>
+          <a href="#" class="btn card-btn-links">Comments: 23</a>
+        </div>
+      </div>
+      <!-- **** -->
+      <!-- card -->
+    </div>
+    <div class="col-3 columns">
+      <!-- news -->
+      <!-- **** -->
+      <div class="news-card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <h3>News</h3>
+          </li>
+          <li class="list-group-item">
+            <p>Lorem ipsum dolor sit amet consectetur</p>
+            <a href="#">Read more</a>
+          </li>
+          <li class="list-group-item">
+            <p>Lorem ipsum dolor sit amet consectetur</p>
+            <a href="#">Read more</a>
+          </li>
+          <li class="list-group-item">
+            <p>Lorem ipsum dolor sit amet consectetur</p>
+            <a href="#">Read more</a>
+          </li>
+          <li class="list-group-item">
+            <p>Lorem ipsum dolor sit amet consectetur</p>
+            <a href="#">Read more</a>
+          </li>
+        </ul>
+      </div>
+      <!-- **** -->
+      <!-- news -->
+    </div>
+  </div>
+</div>
+<!-- **** -->
+<!-- body -->
+
+<!-- app body end -->
+{% endblock %}
+<!-- app body end -->
