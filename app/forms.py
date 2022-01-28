@@ -39,8 +39,6 @@ class CreateComment(forms.ModelForm):
 # contact form
 class ContactForm(forms.Form):
 
-    first_name = forms.CharField(label='Your first name', max_length=50)
-    second_name = forms.CharField(label='Your second name', max_length=50)
     email = forms.EmailField(label='Your email')
     subject = forms.CharField(label='Subject', max_length=100)
     comment = forms.CharField(label='Talk to us...', widget=forms.Textarea)

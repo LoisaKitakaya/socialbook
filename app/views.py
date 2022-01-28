@@ -4,6 +4,9 @@ from newsapi import NewsApiClient
 from .models import *
 from .forms import *
 import yagmail
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login as django_login
 
 # Create your views here.
 
@@ -48,17 +51,36 @@ def home(request):
 
         comment_count[post] = Comments.objects.filter(comment_post=post).count()
 
+    # login user
+    if request.method == 'POST':
+
+        form = AuthenticationForm(data=request.POST)
+
+        if form.is_valid():
+
+            user = form.get_user()
+
+            django_login(request, user)
+
+            return redirect('home')
+
+    else:
+
+        form = AuthenticationForm()
+
     context = {
         'forecast' : user_location_weather.json(),
         'news_feed' : news_feed['articles'],
         'live_user' : live_user,
         'all_posts' : all_posts,
-        'comment_count' : comment_count
+        'comment_count' : comment_count,
+        'form' : form,
     }
 
     return render(request, 'app/index.html', context)
 
 # posts view
+@login_required(login_url='login_user')
 def user_posts(request, slug):
 
     blog_article = Posts.objects.get(slug=slug)
@@ -97,6 +119,7 @@ def user_posts(request, slug):
     return render(request, 'app/posts.html', context)
 
 # users view
+@login_required(login_url='login_user')
 def user_profile(request, pk):
 
     profile = UserProfile.objects.select_related('user').get(user_id=pk)
@@ -111,6 +134,7 @@ def user_profile(request, pk):
     return render(request, 'app/user.html', context)
 
 # current user's profile
+@login_required(login_url='login_user')
 def current_user_profile(request):
 
     current_user = request.user
@@ -127,6 +151,7 @@ def current_user_profile(request):
     return render(request, 'app/user.html', context)
 
 # create post view
+@login_required(login_url='login_user')
 def create_post(request):
 
     current_user = request.user
@@ -156,12 +181,11 @@ def create_post(request):
 
     return render(request, 'app/create.html', context)
 
-# create profile view
-def create_profile(request):
+# create new profile view
+@login_required(login_url='login_user')
+def create_new_profile(request):
 
     current_user = request.user
-
-    save_action_user = UserProfile.objects.select_related('user').get(user_id=current_user.pk)
 
     if request.method == 'POST':
 
@@ -171,7 +195,7 @@ def create_profile(request):
 
             save_action = form.save(commit=False)
 
-            save_action.user = save_action_user
+            save_action.user = current_user
 
             save_action.save()
             
@@ -200,21 +224,25 @@ def contact(request):
 
         if form.is_valid():
 
-            first_name = form.cleaned_data.get('first_name')
-
-            second_name = form.cleaned_data.get('second_name')
-
             email = form.cleaned_data.get('email')
 
             subject_ = form.cleaned_data.get('subject')
 
             comment = form.cleaned_data.get('comment')
 
+            message = 'We will get back to you within the hour.'
+
             yag = yagmail.SMTP('loisadevmode@gmail.com', '#Kitloisa15')
 
             yag.send(
                 to = email,
                 subject = subject_,
+                contents = message
+            )
+
+            yag.send(
+                to = 'kitakayaloisa@gmail.com',
+                subject =subject_,
                 contents = comment
             )
             

@@ -1,0 +1,44 @@
+<!-- inherit base template -->
+{% extends "base.html" %}
+<!-- inherit base template -->
+
+<!-- load bootstrap -->
+{% load bootstrap5 %}
+<!-- load bootstrap -->
+
+<!-- app body begin -->
+{% block content %}
+<!-- app body begin -->
+
+<!-- body -->
+<!-- **** -->
+<div class="body-container" id="main-body">
+  <div class="container about-card text-center">
+    <h1>Create Account</h1>
+    <br />
+    <form method="post" class="post-form">
+      {% csrf_token %}
+      <!-- form -->
+      {% bootstrap_form form %}
+      <!-- form -->
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+  </div>
+</div>
+<!-- **** -->
+<!-- body -->
+
+<!-- footer -->
+<!-- ****** -->
+<div class="footer container-fluid text-center">
+  <p>
+    Copyright © 2022 Freedom Loisa | All rights reserved |
+    <a href="#">Contact</a>
+  </p>
+</div>
+<!-- ****** -->
+<!-- footer -->
+
+<!-- app body end -->
+{% endblock %}
+<!-- app body end -->
