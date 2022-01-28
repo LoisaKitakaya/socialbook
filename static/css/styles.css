@@ -11,6 +11,7 @@ font-family: 'Yanone Kaffeesatz', sans-serif !important;
 
 html,
 body {
+  font-family: "Josefin Sans", sans-serif !important;
   padding: 0 !important;
   margin: 0 !important;
   height: 100% !important;
@@ -20,7 +21,6 @@ body {
     rgba(238, 174, 202, 1) 0%,
     rgba(148, 187, 233, 1) 100%
   ) !important;
-  font-family: "Josefin Sans", sans-serif !important;
 }
 
 .navbar {
@@ -370,8 +370,18 @@ body {
   padding: 2rem;
 }
 
-/* .comment-form {
-  display: flex !important;
-  flex-direction: row !important;
-  width: max-content !important;
-} */
+@media screen and (max-width: 480px) {
+  #index-container {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  #mq-col-6, #mq-col-3 {
+    width: 100% !important;
+  }
+
+  #index-form {
+    text-align: center;
+  }
+
+}

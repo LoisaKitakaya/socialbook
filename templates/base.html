@@ -63,7 +63,9 @@
               More
             </button>
             <ul class="dropdown-menu dropdown-menu-sm-end">
-              <li><a class="dropdown-item" href="{% url 'liveuser' %}">Profile</a></li>
+              <li>
+                <a class="dropdown-item" href="{% url 'liveuser' %}">Profile</a>
+              </li>
               <li>
                 <a class="dropdown-item" href="{% url 'about' %}">About</a>
               </li>
@@ -71,8 +73,17 @@
                 <a class="dropdown-item" href="{% url 'contact' %}">Contacts</a>
               </li>
               <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item" href="#">Sign in</a></li>
-              <li><a class="dropdown-item" href="#">Logout</a></li>
+              <li>
+                <a class="dropdown-item" href="{% url 'register_user' %}"
+                  >Create account</a
+                >
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" href="{% url 'logout_user' %}"
+                  >Logout</a
+                >
+              </li>
             </ul>
           </div>
         </div>
