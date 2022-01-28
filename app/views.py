@@ -65,9 +65,33 @@ def user_posts(request, slug):
 
     comment_post = Comments.objects.select_related('comment_author').filter(comment_post=blog_article)
 
+    current_user = request.user
+
+    save_action_user = UserProfile.objects.select_related('user').get(user_id=current_user.pk)
+
+    if request.method == 'POST':
+
+        form = CreateComment(request.POST, request.FILES)
+
+        if form.is_valid():
+
+            save_action = form.save(commit=False)
+
+            save_action.comment_author = save_action_user
+
+            save_action.comment_post = blog_article
+
+            save_action.save()
+            
+        return redirect('home')
+
+    else:
+        form = CreateComment()
+
     context = {
         'article' : blog_article,
         'post_comments' : comment_post,
+        'form' : form,
     }
 
     return render(request, 'app/posts.html', context)

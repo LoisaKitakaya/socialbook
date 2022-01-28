@@ -26,6 +26,16 @@ class CreateProfile(forms.ModelForm):
         exclude = ['user', 'joined_on']
         profile_pic = CloudinaryFileField('image')
 
+# create comment form
+class CreateComment(forms.ModelForm):
+
+    class Meta:
+
+        model = Comments
+
+        fields = '__all__'
+        exclude = ['comment_author', 'comment_post', 'commented_on']
+
 # contact form
 class ContactForm(forms.Form):
 
