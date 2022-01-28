@@ -10,135 +10,64 @@
 <!-- **** -->
 <div class="body-container" id="main-body">
   <div class="row">
-    <div class="col-9 columns post-columns">
+    <div class="container-posts">
       <!-- card -->
       <!-- **** -->
       <div class="post-card actual-post">
-        <p class="text-muted text-end">2022 Jan 6 20:40</p>
+        <!-- if -->
+        {% if article %}
+        <!-- if -->
+        <p class="text-muted text-end">{{ article.posted_on }}</p>
         <br />
-        <h1 class="text-center">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, a!
-        </h1>
+        <h1 class="text-center">{{ article.title }}</h1>
+        <img
+          src="{{ article.post_thumbnail.url }}"
+          class="img-fluid rounded"
+          alt=""
+        />
         <div class="post-content">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
-            voluptates doloribus veniam iusto expedita atque nam possimus
-            nesciunt totam, repudiandae obcaecati eveniet earum aliquid amet
-            recusandae nulla inventore quod ad deleniti molestiae provident,
-            reiciendis non at? Repellendus, voluptates. Porro sint illo
-            consequatur distinctio ab, doloremque provident, quas odio non, cum
-            dolore reiciendis. Natus repellendus odio inventore deserunt
-            aliquid! Iusto accusamus quibusdam, laborum vitae placeat quaerat
-            quisquam! Soluta exercitationem alias magni, facere voluptas,
-            ratione praesentium delectus, dicta nam mollitia neque! Assumenda
-            nisi corporis pariatur voluptas est, quia quidem illum? Blanditiis
-            porro reprehenderit fugit dolores, asperiores aut iure praesentium
-            qui, cumque ducimus, accusamus veritatis enim. Ad nesciunt vero
-            temporibus totam, cum velit porro illum sit nostrum, fuga pariatur
-            sed quisquam eos repudiandae beatae voluptatibus debitis sapiente,
-            similique praesentium. Repudiandae, non fugiat sapiente, suscipit
-            sequi soluta veniam asperiores, commodi quia praesentium nisi esse
-            nihil similique itaque beatae! Ad libero doloremque suscipit culpa
-            repudiandae esse veritatis temporibus qui? Enim quam et aliquam
-            reprehenderit est expedita excepturi? Esse labore deserunt
-            exercitationem distinctio iure recusandae amet facilis, nesciunt
-            suscipit optio, ipsa quae sint. Quibusdam cupiditate consectetur
-            labore dolore suscipit, omnis magnam eum sequi aliquam distinctio
-            ratione voluptatum ullam facere perferendis exercitationem eos
-            explicabo, praesentium sint aliquid. Autem quibusdam voluptatibus
-            nesciunt facere, ratione praesentium doloribus pariatur illo,
-            dolorum aspernatur adipisci laudantium eum vero! Nobis voluptatum
-            tenetur ipsam sunt adipisci vero ullam quas sit ratione commodi quam
-            illum earum reiciendis excepturi ipsum impedit soluta quos
-            temporibus debitis laboriosam officia voluptate, modi architecto.
-            Accusantium voluptates adipisci eaque commodi vero impedit.
-            Consequuntur, saepe tempora earum veniam consectetur odio dolorem,
-            alias eveniet, commodi ipsa amet inventore tempore a iure similique
-            ipsam officiis voluptatibus deserunt expedita reprehenderit modi hic
-            dolorum repudiandae facilis. Nostrum ut ad enim inventore. Vitae
-            aspernatur blanditiis beatae repudiandae sit, delectus, quibusdam
-            modi magnam corporis eaque dolores, et praesentium minima explicabo
-            a ex velit vero. Nemo veniam amet quaerat inventore eos, hic,
-            doloribus nostrum incidunt ad blanditiis obcaecati aperiam vel
-            dolores veritatis. Distinctio, cumque? Repudiandae illum vitae
-            perferendis, assumenda eveniet voluptates nulla, temporibus quam
-            incidunt alias, ipsam nemo. Eligendi, ab saepe. Reprehenderit,
-            voluptatem consectetur optio quidem ad illum quasi. Esse accusantium
-            error illo assumenda rem eius reprehenderit optio illum voluptatum!
-            Aperiam quis iure vero laudantium commodi minima rem omnis tempora
-            culpa asperiores dicta natus, accusantium quos quasi dolore pariatur
-            quae tempore ipsa, nemo perspiciatis nisi. Dicta dolorum, sunt
-            architecto obcaecati, molestias, quidem ipsam similique illo harum
-            voluptatem aliquam tenetur perferendis quod ratione minus tempora
-            laboriosam distinctio libero quo? Voluptate architecto at ab,
-            placeat animi tempora consectetur ducimus eaque molestias hic
-            accusamus rem maiores eveniet consequatur, ipsam expedita. Nisi nemo
-            voluptatibus numquam sed et. Labore perferendis harum dolore debitis
-            ut. Doloribus dolores cumque sint perspiciatis veritatis repellendus
-            repudiandae, neque, nostrum ipsa sed beatae exercitationem,
-            provident libero laboriosam. Nihil facere a culpa amet aspernatur
-            et, nobis nostrum deleniti voluptate enim laborum esse dolorem
-            dolorum illum explicabo commodi nesciunt nemo! Quas aut odit ipsa
-            incidunt nihil perspiciatis iusto, quis voluptatum optio eum debitis
-            modi excepturi? Dolore deserunt, maiores commodi tempora sapiente
-            vero quae totam cumque dolorum accusamus laborum neque ipsam tenetur
-            perferendis architecto et nisi delectus sint necessitatibus fuga ut
-            voluptatibus illum optio iusto. Culpa veniam aspernatur magni illum
-            neque reprehenderit ipsam inventore. Dolor, totam! Quos aliquam
-            laudantium unde odio accusamus dolores nisi debitis odit ab,
-            excepturi voluptates id architecto obcaecati vitae explicabo placeat
-            repellendus? Itaque assumenda reprehenderit inventore voluptates
-            dolorum ipsum quisquam hic, laudantium, nobis voluptatibus earum. At
-            mollitia odit explicabo et magnam non, sint animi corporis quisquam
-            eaque quis dolores modi iste nemo molestias nisi delectus? Quidem
-            nisi praesentium eos porro quos tempore reprehenderit quisquam iste
-            at reiciendis labore optio aut voluptatum eius atque blanditiis,
-            illo, laboriosam hic, facilis itaque officiis magnam. Odio, at
-            eveniet qui est debitis ipsum. Iusto error qui, distinctio vel enim
-            velit repellendus, repudiandae voluptatem porro cum placeat neque
-            aperiam cumque ut exercitationem corporis beatae. Ducimus dolorum
-            corporis commodi reiciendis nobis tempore ad iste porro ut vitae.
-            Cum, suscipit illum voluptatibus nobis ullam quis vitae voluptatum
-            velit labore sit accusamus officiis incidunt amet nostrum numquam
-            ipsum et. Hic consectetur quas unde deleniti veniam officiis facere,
-            velit quibusdam aut dolorem ex ea optio corporis quaerat dicta
-            cumque enim blanditiis sint molestiae? Nihil harum, veniam minima
-            voluptatem in quaerat! Inventore atque recusandae aut ratione minus
-            rem id, dignissimos ipsam. Officia placeat molestiae, maxime
-            excepturi impedit recusandae vel quidem, nobis consectetur vitae
-            odit? Culpa quisquam similique eos ducimus error, iste quibusdam
-            ratione qui aspernatur velit modi. Esse, fugit similique
-            consequuntur dicta sit veniam quaerat natus, quod accusantium
-            voluptatum quasi.
-          </p>
+          <p>{{ article.content }}</p>
         </div>
+        <!-- endif -->
+        {% endif %}
+        <!-- endif -->
+
+        <!--  -->
         <hr class="separator" />
+        <!--  -->
+
         <!--  -->
         <h3 class="text-center text-muted">Comments</h3>
         <!--  -->
 
         <!-- comment card -->
         <!-- ******* **** -->
+
+        <!-- for -->
+        {% for comment in post_comments %}
+        <!-- for -->
         <div class="comment-card">
           <div class="post-card-header">
             <div>
               <img
-                src="./img/socialbook_logo.png"
+                src="{{ comment.comment_author.profile_pic.url }}"
                 class="rounded-circle"
                 alt="user icon"
+                id="comment-user-icon"
               />
-              <a href="#" class="text-end">@user</a>
+              <a href="#" class="text-end"
+                >@{{ comment.comment_author.user }}</a
+              >
             </div>
           </div>
           <br />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-            omnis, ipsam voluptas, corporis consectetur rem illo inventore
-            ratione illum pariatur, ut unde. Optio magnam culpa fugiat
-            cupiditate? Nulla, accusamus voluptatum.
-          </p>
-          <p class="text-muted text-end lh-1">2022 Jan 6 20:40</p>
+          <p>{{ comment.comment }}</p>
+          <p class="text-muted text-end lh-1">{{ comment.commented_on }}</p>
         </div>
+        <!-- endfor -->
+        {% endfor %}
+        <!-- endfor -->
+
         <!-- ******* **** -->
         <!-- comment card -->
         <hr class="separator" />
@@ -161,44 +90,6 @@
       </div>
       <!-- **** -->
       <!-- card -->
-    </div>
-    <div class="col-3 columns">
-      <!-- user info -->
-      <!-- **** **** -->
-      <div class="news-card">
-        <div class="user-details-snippet text-center">
-          <br />
-          <img src="./img/socialbook_logo.png" class="rounded-circle" alt="" />
-          <br />
-          <a href="#">@username</a>
-          <br />
-          <h3>Firstname Secondname</h3>
-        </div>
-        <hr class="separator" />
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <h5 class="text-center lh-1">Related posts</h5>
-          </li>
-          <li class="list-group-item">
-            <p>Lorem ipsum dolor sit amet consectetur</p>
-            <a href="#">Read post</a>
-          </li>
-          <li class="list-group-item">
-            <p>Lorem ipsum dolor sit amet consectetur</p>
-            <a href="#">Read post</a>
-          </li>
-          <li class="list-group-item">
-            <p>Lorem ipsum dolor sit amet consectetur</p>
-            <a href="#">Read post</a>
-          </li>
-          <li class="list-group-item">
-            <p>Lorem ipsum dolor sit amet consectetur</p>
-            <a href="#">Read post</a>
-          </li>
-        </ul>
-      </div>
-      <!-- **** **** -->
-      <!-- user info -->
     </div>
   </div>
 </div>

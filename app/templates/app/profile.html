@@ -2,10 +2,6 @@
 {% extends "base.html" %}
 <!-- inherit base template -->
 
-<!-- load static -->
-{% load static %}
-<!-- load static -->
-
 <!-- load bootstrap -->
 {% load bootstrap5 %}
 <!-- load bootstrap -->
@@ -18,38 +14,15 @@
 <!-- **** -->
 <div class="body-container" id="main-body">
   <div class="container about-card text-center">
-    <h1>Contact us</h1>
+    <h1>Create your user profile</h1>
     <br />
-    <hr class="separator" />
-    <br />
-    <!--  -->
-    <div class="contact-icons">
-      <a href="#">
-        <img src="{% static '/img/facebook.png' %}" alt="facebook icon" />
-      </a>
-      <a href="#">
-        <img src="{% static '/img/twitter.png' %}" alt="twitter icon" />
-      </a>
-      <a href="#">
-        <img src="{% static '/img/whatsapp.png' %}" alt="whatsapp icon" />
-      </a>
-      <a href="#">
-        <img src="{% static '/img/youtube.png' %}" alt="youtube icon" />
-      </a>
-    </div>
-    <!--  -->
-    <br />
-    <hr class="separator" />
-    <!--  -->
-    <form class="contact-form" method="post">
+    <form method="post" class="post-form" enctype="multipart/form-data">
       {% csrf_token %}
       <!-- form -->
       {% bootstrap_form form %}
       <!-- form -->
       <button type="submit" class="btn btn-success">Submit</button>
     </form>
-    <!--  -->
-    <hr class="separator" />
   </div>
 </div>
 <!-- **** -->

@@ -11,14 +11,31 @@
 
 <div class="body-container" id="main-body">
   <div class="row">
+    <!-- top column -->
     <div class="col-sm-3 columns">
+      <!-- user authentication -->
+      {% if user.is_authenticated %}
+      <!-- user authentication -->
+
       <!-- user status -->
       <!-- **** ****** -->
+
+      <!-- if -->
+      {% if live_user %}
+      <!-- if -->
       <div class="user-card">
-        <p>@user logged in</p>
+        <p>@{{ live_user }} is logged in</p>
       </div>
+      <!-- endif -->
+      {% endif %}
+      <!-- endif -->
+
       <!-- **** ****** -->
       <!-- user status -->
+
+      <!-- else -->
+      {% else %}
+      <!-- else -->
 
       <!-- login -->
       <!-- ***** -->
@@ -47,58 +64,86 @@
       <!-- ***** -->
       <!-- login -->
 
+      <!-- user authentication -->
+      {% endif %}
+      <!-- user authentication -->
+
       <!-- weather -->
       <!-- ******* -->
+
+      <!-- if -->
+      {% if forecast%}
+      <!-- if -->
       <div class="weather-card">
-        <p>City:</p>
-        <p>Region:</p>
-        <p>Country:</p>
+        <p>City: {{ forecast.location.name }}</p>
+        <p>Region: {{ forecast.location.region }}</p>
+        <p>Country: {{ forecast.location.country }}</p>
         <br />
         <div class="weather-container">
-          <img src="" alt="" />
-          <p>Cloudy</p>
+          <img
+            src="{{ forecast.current.condition.icon }}"
+            alt="{{ forecast.current.condition.text }}"
+          />
+          <p>{{ forecast.current.condition.text }}</p>
         </div>
         <br />
-        <p>Feels like:</p>
-        <p>Wind speed:</p>
-        <p>Wind direction:</p>
-        <p>Pressure:</p>
-        <p>Humidity:</p>
-        <p>Cloud cover:</p>
+        <p>Feels like: {{ forecast.current.temp_c }} &deg;c</p>
+        <p>Wind speed: {{ forecast.current.wind_kph }} kmph</p>
+        <p>Wind direction: {{ forecast.current.wind_dir }}</p>
+        <p>Pressure: {{ forecast.current.pressure_mb }} millibars</p>
+        <p>Humidity: {{ forecast.current.humidity }} g.kg-1</p>
+        <p>Cloud cover: {{ forecast.current.cloud }} %</p>
       </div>
+      <!-- endif -->
+      {% endif %}
+      <!-- endif -->
+
       <!-- ******* -->
       <!-- weather -->
     </div>
+    <!-- mid column -->
     <div class="col-6 columns">
       <!-- card -->
       <!-- **** -->
+
+      <!-- for -->
+      {% for post in all_posts %}
+      <!-- for -->
       <div class="post-card">
-        <p class="text-muted text-end">2022 Jan 6 20:40</p>
+        <p class="text-muted text-end">{{ post.posted_on }}</p>
         <div class="post-card-header">
           <div>
             <img
-              src="./img/socialbook_logo.png"
+              src="{{ post.post_author.profile_pic.url }}"
               class="rounded-circle"
               alt="user icon"
             />
-            <a href="#" class="text-end">@user</a>
+            <a href="{% url 'user' post.post_author.pk %}" class="text-end">@{{ post.post_author.user }}</a>
           </div>
         </div>
         <br />
-        <a href="#" class="card-btn-header">
-          <h3>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, a!
-          </h3>
+        <a href="{% url 'posts' post.slug%}" class="card-btn-header">
+          <h3>{{ post.title }}</h3>
         </a>
         <br />
         <div class="post-card-footer">
-          <!-- <a href="#" class="btn card-btn-links">Likes : 15</a> -->
-          <a href="#" class="btn card-btn-links">Comments: 23</a>
+          <!-- for -->
+          {% if comment_count %}
+          <!-- for -->
+          <a href="#" class="btn card-btn-links">Comments: {{ comment_count.post }}</a>
+          <!-- endfor -->
+          {% endif %}
+          <!-- endfor -->
         </div>
       </div>
+      <!-- endfor -->
+      {% endfor %}
+      <!-- endfor -->
+
       <!-- **** -->
       <!-- card -->
     </div>
+    <!-- last column -->
     <div class="col-3 columns">
       <!-- news -->
       <!-- **** -->
@@ -107,22 +152,17 @@
           <li class="list-group-item">
             <h3>News</h3>
           </li>
+
+          <!-- for -->
+          {% for feed in news_feed %}
+          <!-- for -->
           <li class="list-group-item">
-            <p>Lorem ipsum dolor sit amet consectetur</p>
-            <a href="#">Read more</a>
+            <p>{{ feed.title }}</p>
+            <a href="{{ feed.url }}">Read more</a>
           </li>
-          <li class="list-group-item">
-            <p>Lorem ipsum dolor sit amet consectetur</p>
-            <a href="#">Read more</a>
-          </li>
-          <li class="list-group-item">
-            <p>Lorem ipsum dolor sit amet consectetur</p>
-            <a href="#">Read more</a>
-          </li>
-          <li class="list-group-item">
-            <p>Lorem ipsum dolor sit amet consectetur</p>
-            <a href="#">Read more</a>
-          </li>
+          <!-- endfor -->
+          {% endfor %}
+          <!-- endfor -->
         </ul>
       </div>
       <!-- **** -->

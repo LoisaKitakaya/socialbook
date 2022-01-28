@@ -8,17 +8,27 @@
 
 <!-- navbar 2 -->
 <!-- ****** * -->
+
+<!-- if -->
+{% if profile %}
+<!-- if -->
 <nav class="navbar" id="nav-bot">
   <div class="container-fluid nav-container-top-user">
     <img
-      src="./img/socialbook_logo.png"
+      src="{{ profile.profile_pic.url }}"
       class="rounded-circle"
       alt="page logo"
     />
     <br />
-    <p>Firsname Secondname</p>
-    <p>firstandsecond@example.com</p>
-    <a href="#">edit profile</a>
+    <div class="full-names">
+      <div>
+        <p>{{ profile.first_name }}</p>
+      </div>
+      <div>
+        <p>{{ profile.second_name }}</p>
+      </div>
+    </div>
+    <p>{{ profile.user.email }}</p>
   </div>
 </nav>
 <!-- ****** * -->
@@ -30,44 +40,31 @@
   <div class="container">
     <h3 class="text-center">Bio</h3>
     <div class="user-info-card">
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit officiis
-        aut, est consequuntur, vitae velit officia illum soluta labore odit ab?
-        Esse nostrum maxime quasi! Cupiditate culpa ea nam labore exercitationem
-        asperiores quia! Quaerat aliquid porro aperiam voluptates perspiciatis
-        sint dolore voluptas velit tempore quia, esse numquam minima tenetur.
-        Soluta culpa aliquid error exercitationem! Assumenda cumque provident
-        nam repellendus esse odio, praesentium ut? Dolorum animi, itaque earum
-        autem esse maiores dicta sit aliquam obcaecati sed doloribus nemo,
-        laudantium quam natus! Unde optio excepturi reprehenderit deserunt
-        officia. Ut quod commodi, saepe corporis perspiciatis non tempore, esse
-        voluptate asperiores accusamus reprehenderit facere?
-      </p>
+      <p>{{ profile.bio }}</p>
     </div>
     <br />
     <h3 class="text-center">Posts</h3>
     <div class="user-post-list">
+      <!-- for -->
+      {% for post in posts_by_user %}
+      <!-- for -->
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
-          <p>Lorem ipsum dolor sit amet consectetur</p>
-          <a href="#">Read post</a>
+          <p>{{ post.title }}</p>
+          <a href="{% url 'posts' post.slug %}">Read post</a>
         </li>
-        <li class="list-group-item">
-          <p>Lorem ipsum dolor sit amet consectetur</p>
-          <a href="#">Read post</a>
-        </li>
-        <li class="list-group-item">
-          <p>Lorem ipsum dolor sit amet consectetur</p>
-          <a href="#">Read post</a>
-        </li>
-        <li class="list-group-item">
-          <p>Lorem ipsum dolor sit amet consectetur</p>
-          <a href="#">Read post</a>
-        </li>
+        <br>
       </ul>
+      <!-- endfor -->
+      {% endfor %}
+      <!-- endfor -->
     </div>
   </div>
 </div>
+<!-- endif -->
+{% endif %}
+<!-- endif -->
+
 <!-- **** -->
 <!-- body -->
 
