@@ -5,8 +5,11 @@ from .views import *
 
 urlpatterns = [
     path('', home, name='home'),
-    path('posts/', user_posts, name='posts'),
-    path('user/', user_profile, name='user'),
+    path('posts/<slug:slug>/', user_posts, name='posts'),
+    path('user/<int:pk>/', user_profile, name='user'),
+    path('create_post/', create_post, name='create_post'),
+    path('create_profile', create_profile, name='create_profile'),
     path('about/', about, name='about'),
     path('contact/', contact, name='contact'),
+    path('liveuser/', current_user_profile, name='liveuser'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
