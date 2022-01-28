@@ -42,21 +42,17 @@
     <nav class="navbar fixed-top">
       <div class="container-fluid nav-container">
         <div class="d-flex-main">
-          <a href="./index.html">
+          <a href="{% url 'home' %}">
             <img src="{% static 'img/socialbook_logo.png' %}" alt="page logo" />
           </a>
-          <form class="d-flex">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-grad" type="submit">Search</button>
-          </form>
         </div>
         <div class="nav-subcontainer">
-          <a href="#" class="btn btn-grad" id="create-post">Create Post</a>
+          <a
+            href="{% url 'create_post' %}"
+            class="btn btn-grad"
+            id="create-post"
+            >Create Post</a
+          >
           <div class="btn-group">
             <button
               type="button"
@@ -67,10 +63,15 @@
               More
             </button>
             <ul class="dropdown-menu dropdown-menu-sm-end">
-              <li><a class="dropdown-item" href="#">Profile</a></li>
-              <li><a class="dropdown-item" href="#">About</a></li>
-              <li><a class="dropdown-item" href="#">Contacts</a></li>
+              <li><a class="dropdown-item" href="{% url 'liveuser' %}">Profile</a></li>
+              <li>
+                <a class="dropdown-item" href="{% url 'about' %}">About</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'contact' %}">Contacts</a>
+              </li>
               <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="#">Sign in</a></li>
               <li><a class="dropdown-item" href="#">Logout</a></li>
             </ul>
           </div>

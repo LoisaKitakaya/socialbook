@@ -135,8 +135,31 @@ body {
   width: 100px;
 }
 
+.container-posts {
+  padding: 2rem !important;
+}
+
 .actual-post h1 {
   padding: 1rem;
+}
+
+.full-names {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-around !important;
+  align-items: center;
+}
+
+.full-names div {
+  margin: 0.25rem !important;
+}
+
+.actual-post img {
+  padding: 2rem !important;
+  height: 600px !important;
+  margin: auto !important;
+  width: 100% !important;
+  border: none !important;
 }
 
 .post-card,
@@ -220,15 +243,26 @@ body {
 .post-card img {
   height: 64px;
   width: 64px;
-  border: 1px solid gray;
-  margin-right: 1.5rem;
+  border: 1px solid gray !;
+  margin-right: 1.5rem !important;
 }
 
 .post-card-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
   align-items: center !important;
+}
+
+#comment-user-icon {
+  height: 64px !important;
+  width: 64px !important;
+  border: 1px solid gray !;
+  margin-right: 1.5rem !important;
+}
+
+.post-form {
+  margin: 0 2rem;
 }
 
 .post-card-footer {
@@ -335,5 +369,3 @@ body {
 .contact-form {
   padding: 2rem;
 }
-
-
