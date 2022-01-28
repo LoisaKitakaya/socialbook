@@ -2,6 +2,10 @@
 {% extends "base.html" %}
 <!-- inherit base template -->
 
+<!-- load bootstrap -->
+{% load bootstrap5 %}
+<!-- load bootstrap -->
+
 <!-- app body begin -->
 {% block content %}
 <!-- app body begin -->
@@ -75,14 +79,12 @@
         <!-- comment form -->
         <!-- ******* **** -->
         <div class="comment-card">
-          <form class="d-flex">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Post a comment"
-              aria-label="Search"
-            />
-            <button class="btn btn-success" type="submit">Submit</button>
+          <form class="comment-form" method="post">
+            {% csrf_token %}
+            <!-- form -->
+            {% bootstrap_form form %}
+            <!-- form -->
+            <button class="btn btn-success container-fluid" type="submit">Submit</button>
           </form>
         </div>
         <!-- ******* **** -->
