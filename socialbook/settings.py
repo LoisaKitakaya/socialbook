@@ -102,10 +102,10 @@ WSGI_APPLICATION = 'socialbook.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sbookdb',
-        'USER': 'postgres',
-        'PASSWORD': '#Kitloisa15',
-        'HOST': 'localhost',
+        'NAME': 'dbp5kajkrsd6u5',
+        'USER': 'hcgbgnfqlhaxgs',
+        'PASSWORD': 'ae6672600c1644e5b269d931824721925e1d76bad8e281fb5877b89d2a24ba8e',
+        'HOST': 'ec2-184-73-243-101.compute-1.amazonaws.com',
         'PORT': '5432'
     }
 }
