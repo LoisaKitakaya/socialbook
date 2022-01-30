@@ -124,7 +124,7 @@
           <div>
             <img
               src="{{ post.post_author.profile_pic.url }}"
-              class="rounded-circle"
+              class="rounded"
               alt="user icon"
             />
             <a href="{% url 'user' post.post_author.pk %}" class="text-end"
@@ -138,15 +138,9 @@
         </a>
         <br />
         <div class="post-card-footer">
-          <!-- for -->
-          {% if comment_count %}
-          <!-- for -->
-          <a href="#" class="btn card-btn-links"
-            >Comments: {{ comment_count.post }}</a
+          <a href="{% url 'posts' post.slug%}" class="btn card-btn-links"
+            >Comment</a
           >
-          <!-- endfor -->
-          {% endif %}
-          <!-- endfor -->
         </div>
       </div>
       <!-- endfor -->
