@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 import requests
+import os
 from newsapi import NewsApiClient
 from .models import *
 from .forms import *
@@ -24,12 +25,12 @@ def home(request):
     # get user location weather based on user location
     URL = 'https://api.weatherapi.com/v1/current.json'
 
-    api_key = 'a3e002febf70410688d173910222301'
+    api_key_weather = os.getenv('api_key_weather')
 
     api_call_query = city
 
     PARAMS = {
-        'key' : api_key,
+        'key' : api_key_weather,
         'q' : api_call_query
     }
 
@@ -37,7 +38,7 @@ def home(request):
 
     # show tech news on home page
     # Init
-    newsapi = NewsApiClient(api_key='664f61cf91624b3098f8825a6282e25e')
+    newsapi = NewsApiClient(api_key_news=os.getenv('api_key_news'))
 
     # /v2/top-headlines
     news_feed = newsapi.get_everything(q='tech', sources='the-verge,bbc-news,ars-technica,bloomberg,business-insider', language='en', sort_by='relevancy')

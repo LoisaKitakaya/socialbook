@@ -24,7 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-1q1@ao!g9boega)kn75o0#)914hq!x+0983$u^^1^85bamsx26'
+# SECRET_KEY = 'django-insecure-1q1@ao!g9boega)kn75o0#)914hq!x+0983$u^^1^85bamsx26'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -48,9 +49,9 @@ INSTALLED_APPS = [
 ]
 
 cloudinary.config( 
-  cloud_name = "dit0fii18", 
-  api_key = "488158286488541", 
-  api_secret = "15AEbpxsXhNF828AaNQtQy7iOR0",
+  cloud_name = os.getenv('cloud_name'), 
+  api_key = os.getenv('api_key'), 
+  api_secret = os.getenv('api_secret'),
   secure = True
 )
 
@@ -102,10 +103,10 @@ WSGI_APPLICATION = 'socialbook.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dbp5kajkrsd6u5',
-        'USER': 'hcgbgnfqlhaxgs',
-        'PASSWORD': 'ae6672600c1644e5b269d931824721925e1d76bad8e281fb5877b89d2a24ba8e',
-        'HOST': 'ec2-184-73-243-101.compute-1.amazonaws.com',
+        'NAME': os.getenv('NAME'),
+        'USER': os.getenv('USER'),
+        'PASSWORD': os.getenv('PASSWORD'),
+        'HOST': os.getenv('HOST'),
         'PORT': '5432'
     }
 }
