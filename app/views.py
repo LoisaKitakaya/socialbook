@@ -38,7 +38,7 @@ def home(request):
 
     # show tech news on home page
     # Init
-    newsapi = NewsApiClient(api_key_news=os.getenv('api_key_news'))
+    newsapi = NewsApiClient(api_key=os.getenv('api_key_news'))
 
     # /v2/top-headlines
     news_feed = newsapi.get_everything(q='tech', sources='the-verge,bbc-news,ars-technica,bloomberg,business-insider', language='en', sort_by='relevancy')
